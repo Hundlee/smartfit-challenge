@@ -1,6 +1,10 @@
+import { useState } from "react";
 import Button from "./button";
 
 const Filter = () => {
+    const [period, setPeriod] = useState<string>();
+    const [showCloseUnits, setShowCloseUnits] = useState(false);
+
     return (
         <div className="px-5">
             <div className="rounded-lg border-solid border-2 p-5">
@@ -22,6 +26,10 @@ const Filter = () => {
                                 name="period"
                                 value="morning"
                                 className="w-4 h-4"
+                                checked={period === "morning"}
+                                onChange={(e) =>
+                                    setPeriod(e.currentTarget.value)
+                                }
                             />
                             <label
                                 htmlFor="morning"
@@ -41,6 +49,10 @@ const Filter = () => {
                                 name="period"
                                 value="afternoon"
                                 className="w-4 h-4"
+                                checked={period === "afternoon"}
+                                onChange={(e) =>
+                                    setPeriod(e.currentTarget.value)
+                                }
                             />
                             <label
                                 htmlFor="afternoon"
@@ -60,6 +72,10 @@ const Filter = () => {
                                 name="period"
                                 value="evening"
                                 className="w-4 h-4"
+                                checked={period === "evening"}
+                                onChange={(e) =>
+                                    setPeriod(e.currentTarget.value)
+                                }
                             />
                             <label
                                 htmlFor="evening"
@@ -79,6 +95,8 @@ const Filter = () => {
                             name="showCloseUnits"
                             id="showCloseUnits"
                             className="w-4 h-4"
+                            checked={showCloseUnits}
+                            onChange={() => setShowCloseUnits((prev) => !prev)}
                         />
                         <label htmlFor="showCloseUnits">
                             Exibir unidades próximas
