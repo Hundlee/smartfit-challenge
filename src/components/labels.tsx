@@ -6,7 +6,10 @@ const Labels = () => {
             <div className="px-5 pt-14 py-7 bg-brand-lightGrey bg-opacity-10 flex flex-col gap-12">
                 {LABELS.map((label) => (
                     <div className="flex flex-col gap-6">
-                        <h3 className="font-semibold text-xl text-center">
+                        <h3
+                            className="font-semibold text-xl text-center"
+                            key={label.description}
+                        >
                             {label.description}
                         </h3>
 
@@ -18,6 +21,7 @@ const Labels = () => {
                                         height={75}
                                         src={images.url}
                                         alt={images.alt}
+                                        key={images.url}
                                     />
                                     <p className="text-center">
                                         {images.description}
